@@ -88,17 +88,20 @@ nav ul li a:hover {
     display: inline-block;
     margin-top: 25px;
     padding: 15px 45px;
-    background-color: #1a0921; /* Cor escura da imagem */
-    color: #ffffff;
+    background-color: #ffffff; /* Fundo Branco */
+    color: #1a0921;            /* Texto Escuro para dar contraste */
     text-decoration: none;
-    border-radius: 50px; /* Bordas bem arredondadas */
+    border-radius: 50px;       /* Bordas arredondadas */
     font-weight: bold;
     font-size: 1.1em;
-    transition: background 0.3s ease;
+    border: 1px solid #1a0921; /* Opcional: uma borda fina para destacar no fundo claro */
+    transition: all 0.3s ease;
 }
 
 .btn-ofertas:hover {
-    background-color: #331b3d; /* Cor levemente mais clara ao passar o mouse */
+    background-color: #f0f0f0; /* Cinza bem claro ao passar o mouse */
+    transform: scale(1.05);    /* Leve aumento ao passar o mouse */
+}
 }
 /* Seções de Conteúdo */
 .section-content {
@@ -384,3 +387,4 @@ footer {
     }
 
 }
+
