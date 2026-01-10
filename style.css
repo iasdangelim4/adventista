@@ -84,7 +84,22 @@ nav ul li a:hover {
 #banner p {
     font-size: 1.2em;
 }
+.btn-ofertas {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 45px;
+    background-color: #1a0921; /* Cor escura da imagem */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px; /* Bordas bem arredondadas */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+}
 
+.btn-ofertas:hover {
+    background-color: #331b3d; /* Cor levemente mais clara ao passar o mouse */
+}
 /* Seções de Conteúdo */
 .section-content {
     padding: 60px 0;
@@ -367,4 +382,5 @@ footer {
         width: 100%;
         height: 400px;
     }
+
 }
