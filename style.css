@@ -84,24 +84,27 @@ nav ul li a:hover {
 #banner p {
     font-size: 1.2em;
 }
+.button-wrapper {
+    text-align: center; /* Centraliza o botão */
+    margin-top: 30px;
+}
+
 .btn-ofertas {
     display: inline-block;
-    margin-top: 25px;
-    padding: 15px 45px;
-    background-color: #ffffff; /* Fundo Branco */
-    color: #1a0921;            /* Texto Escuro para dar contraste */
-    text-decoration: none;
-    border-radius: 50px;       /* Bordas arredondadas */
-    font-weight: bold;
-    font-size: 1.1em;
-    border: 1px solid #1a0921; /* Opcional: uma borda fina para destacar no fundo claro */
-    transition: all 0.3s ease;
+    background-color: #2e1a35; /* Cor roxo escuro da imagem */
+    color: #ffffff;            /* Texto branco */
+    padding: 18px 60px;        /* Espaçamento interno (deixa o botão grande) */
+    text-decoration: none;     /* Remove o sublinhado */
+    font-size: 22px;           /* Tamanho da letra */
+    font-weight: bold;         /* Deixa a letra negrito */
+    border-radius: 50px;       /* Faz o formato arredondado de pílula */
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra suave para dar profundidade */
 }
 
 .btn-ofertas:hover {
-    background-color: #f0f0f0; /* Cinza bem claro ao passar o mouse */
-    transform: scale(1.05);    /* Leve aumento ao passar o mouse */
-}
+    background-color: #43284d; /* Cor um pouco mais clara ao passar o mouse */
+    transform: scale(1.05);    /* Aumenta levemente ao passar o mouse */
 }
 /* Seções de Conteúdo */
 .section-content {
@@ -387,4 +390,5 @@ footer {
     }
 
 }
+
 
