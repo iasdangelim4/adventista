@@ -91,19 +91,19 @@ nav ul li a:hover {
 
 .btn-ofertas {
     display: inline-block;
-    background-color: #2e1a35; /* Cor roxo escuro da imagem */
-    color: #ffffff;            /* Texto branco */
+    background-color: #ffffff; /* Cor roxo escuro da imagem */
+    color: #0f035d;            /* Texto branco */
     padding: 18px 60px;        /* Espaçamento interno (deixa o botão grande) */
     text-decoration: none;     /* Remove o sublinhado */
     font-size: 22px;           /* Tamanho da letra */
     font-weight: bold;         /* Deixa a letra negrito */
     border-radius: 50px;       /* Faz o formato arredondado de pílula */
     transition: transform 0.2s, background 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra suave para dar profundidade */
+   
 }
 
 .btn-ofertas:hover {
-    background-color: #43284d; /* Cor um pouco mais clara ao passar o mouse */
+    background-color: #ffffff; /* Cor um pouco mais clara ao passar o mouse */
     transform: scale(1.05);    /* Aumenta levemente ao passar o mouse */
 }
 /* Seções de Conteúdo */
@@ -121,12 +121,31 @@ nav ul li a:hover {
     font-size: 2.2em;
 }
 
-.aviso-item, .escala-item {
-    background: #ffffff; /* azul escuro */
-    border-left: 5px solid #1c0a46; /* Verde médio */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+.escala-item {
+    text-align: center; /* Centraliza tudo dentro do item */
+}
+
+.moldura-escala {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.img-full {
+    width: 100%;            /* Ocupa a largura total do container */
+    max-width: 1000px;      /* Tamanho máximo para não perder qualidade */
+    height: auto;           /* Mantém a proporção */
+    border-radius: 15px;    /* Bordas arredondadas como na imagem do Provai e Vede */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra para dar destaque */
+    border: 2px solid #eee;
+}
+
+.lista-escalas {
+    display: inline-block;  /* Mantém a lista alinhada mas centralizada */
+    text-align: left;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
 }
 
 .aviso-item h3, .escala-item h3 {
@@ -388,7 +407,44 @@ footer {
         width: 100%;
         height: 400px;
     }
+/* Imagem da Escala Centralizada e Grande */
+.moldura-escala { display: flex; justify-content: center; margin: 20px 0; }
+.img-full { width: 100%; max-width: 1000px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
 
+/* Tabelas Responsivas */
+.table-responsive { overflow-x: auto; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+th { background-color: #0e0327; color: white; }
+
+/* Lições Grid */
+.licoes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.licao-item { background: #f9f9f9; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #ddd; }
+.btn-download { display: inline-block; margin-top: 10px; color: #0e0327; font-weight: bold; }
+
+/* Iframe Responsivo */
+.iframe-container { position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; }
+.iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* Notícias */
+.noticias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.noticia-item { display: flex; flex-direction: column; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.noticia-item img { width: 100%; height: 200px; object-fit: cover; }
+.noticia-conteudo { padding: 15px; }
+.categoria { font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; color: white; }
+.projetos { background: #007bff; }
+
+/* Rodapé */
+footer { background: #0e0327; color: white; text-align: center; padding: 30px 0; }
+.social-link { color: #f5c518; text-decoration: none; font-weight: bold; }
+
+/* Ajustes para Celular */
+@media (max-width: 768px) {
+    .header-grid { flex-direction: column; text-align: center; }
+    nav ul { margin-top: 15px; font-size: 0.9rem; gap: 10px; }
+    #banner { padding: 60px 10px; }
+    .btn-ofertas { padding: 12px 30px; font-size: 1rem; }
+}
 }
 
 
