@@ -1,0 +1,370 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #0f043b;
+}
+.container {
+    width: 90%;         /* 90% da largura da tela */
+    max-width: 1360px;  /* limite máximo em telas grandes */
+    margin: 0 auto;     /* centraliza */
+    padding: 0 15px;    /* espaço interno */
+}
+
+/* Cabeçalho do site*/
+header {
+    background-color: #0e0327; /* Verde escuro */
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(140, 48, 48, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 125px; /* Ajuste o tamanho do logo conforme necessário */
+}
+
+nav ul {
+    list-style: none;
+    margin: 30;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #314aa3; /* quando passar o mouse em cima de contatos, avisos, e os outros itens do cabeçalho ai vai ficar azul */
+}
+
+/* Banner Principal */
+#banner {
+    background: url('capa\ da\ igreja.png') no-repeat center center/cover;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+#banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+#banner h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+#banner p {
+    font-size: 1.2em;
+}
+
+/* Seções de Conteúdo */
+.section-content {
+    padding: 60px 0;
+    background-color: white;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/*Tituko avisos importantes*/
+.section-content h2 {
+    text-align: center;
+    color: #180342;
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+.aviso-item, .escala-item {
+    background: #ffffff; /* azul escuro */
+    border-left: 5px solid #1c0a46; /* Verde médio */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.aviso-item h3, .escala-item h3 {
+    color: #dcc006; /* cor dos avisos*/
+    margin-top: 0;
+}
+.aviso-item h4,.escala-item h3 {
+    color: #130547; /* cor dos avisos*/
+    margin-top: 0;}
+.escala-item ul {
+    list-style: inside;
+    padding-left: 20px
+}
+
+table {
+    background-color: #ffffff; /* cor de fundo geral da tabela */
+}
+
+th {
+    background-color: #250853; /* cor do cabeçalho */
+    color: #ffffff;
+}
+
+tr:nth-child(even) td {
+    background-color: #ffffff; /* cor das linhas pares */
+}
+
+tr:nth-child(odd) td {
+    background-color: #ffffff; /* cor das linhas ímpares */
+}
+
+
+
+
+
+
+
+
+#calendario p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+#calendario iframe {
+    display: block; /* Centraliza o iframe */
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#noticias .noticia-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#noticias img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.noticia-conteudo {
+  padding: 15px;
+}
+
+.noticia-conteudo h3 {
+  margin: 8px 0 0;
+  font-size: 18px;
+}
+
+.noticia-conteudo h3 a {
+  color: #000;
+  text-decoration: none;
+}
+
+.noticia-conteudo h3 a:hover {
+  color: #314aa3;
+}
+
+/* Categorias com cores diferentes */
+.categoria {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.saude {
+  background-color: #28a745;
+  color: white;
+}
+
+.projetos {
+  background-color: #007bff;
+  color: white;
+}
+
+.infantil {
+  background-color: #ff9800;
+  color: white;
+}
+
+.biblia {
+  background-color: #795548;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #noticias .noticia-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #noticias img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+
+/*Formulário de Contato */
+.contact-form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00054d; 
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; 
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #000f3f; /* Borda verde ao focar */
+    outline: none; /* Remove o outline padrão do navegador */
+    box-shadow: 0 0 5px #000f3f; /* Sombra suave ao focar */
+}
+
+.btn-submit {
+    display: block; /* Ocupa a largura total */
+    width: 100%;
+    background-color: #000f3f; /* azul escuro principal */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #000f3f; /* Um verde um pouco mais escuro ao passar o mouse */
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.contact-info a {
+    color: #05073f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+    background-color: #110448;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+
+/* Responsividade para telas até 768px */
+@media (max-width: 768px) {
+    .container {
+       width: 100%;
+    margin: 0 auto;
+    max-width: 1360px;
+    padding: 0px 0px;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    #banner {
+        padding: 40px 0;
+        font-size: 1em;
+    }
+
+    #calendario iframe {
+        width: 100%;
+        height: 400px;
+    }
+}
