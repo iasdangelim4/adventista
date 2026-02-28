@@ -110,13 +110,22 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.aviso-item, .escala-item {
-    background: #ffffff;
-    border-left: 5px solid #1c0a46;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Ajuste para diminuir a imagem da escala */
+.escala-item img {
+    display: block;          /* Transforma em bloco para centralizar */
+    max-width: 800px;       /* Define um tamanho máximo (ajuste conforme preferir) */
+    width: 100%;            /* Garante que ela seja responsiva */
+    height: auto;           /* Mantém a proporção sem distorcer */
+    margin: 20px auto;      /* Centraliza horizontalmente e dá espaço vertical */
+    border-radius: 8px;     /* Arredonda levemente as bordas para combinar com o layout */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Adiciona uma sombra para destacar */
+}
+
+/* Garante que em telas pequenas ela ocupe quase tudo para não ficar ilegível */
+@media (max-width: 768px) {
+    .escala-item img {
+        max-width: 95%;
+    }
 }
 
 /* 5. RESPONSIVIDADE (CELULAR) - UNIFICADO */
