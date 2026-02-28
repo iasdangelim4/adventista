@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Adventista Angelim IV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="Capa1.png.jpg" alt="Logo da Igreja Adventista" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#banner">Início</a></li>
+                    <li><a href="#escalas">Escalas</a></li>
+                    <li><a href="#licoes">Lições</a></li>
+                    <li><a href="#calendario">Calendário</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="banner">
+            <div class="container">
+                <h1>Bem-vindos à Igreja Adventista Angelim IV</h1>
+                <p>Nosso portal de comunicação, avisos, eventos e escalas.</p>
+                <div class="button-wrapper">
+                    <a href="http://7me.app/" class="btn-ofertas">Dízimos e Ofertas</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="aviso-programado" class="section-content" style="background-color: #0e0327; color: white; text-align: center; padding: 30px 0;">
+            <div class="container">
+                <h2 id="titulo-amarelo" style="color: #f5c518; margin-bottom: 15px; text-transform: uppercase;">
+                    Carregando próximo culto...
+                </h2>
+                <p id="departamento-texto" style="font-size: 1.5rem; font-weight: bold; color: #ffffff; margin-bottom: 5px;"></p>
+                <p id="responsavel-nome" style="font-size: 1.2rem; color: #ccc; font-style: italic;"></p>
+            </div>
+        </section>
+
+        <section id="escalas" class="section-content">
+            <div class="container">
+                <h2>Escalas</h2>
+                <div class="escala-item">
+                    <h3>Escala de Pregadores 2026</h3>
+                    <div class="moldura-escala">
+                        <img src="Escalas.png" alt="Escala Geral" class="img-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="licoes" class="section-content">
+            <div class="container">
+                <h2>Lições da Escola Sabatina</h2>
+                <div class="licoes-grid">
+                    <div class="licao-item">
+                        <h3>LIÇÃO DOS JOVENS</h3>
+                        <a href="LIÇÃO DOS JOVENS - 3º TRIMESTRE 2025 - ÊXODO.pdf" target="_blank" class="btn-download">Baixar PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calendario" class="section-content">
+            <div class="container">
+                <h2>Calendário de Eventos</h2>
+                <iframe src="https://calendar.google.com/calendar/u/0/embed?src=iasdangelim4@gmail.com&ctz=America/Sao_Paulo" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Rua Capitão Gabriel Leite n°1807 - Angelim Teresina-PI</p>
+            <p>(86) 99970-7484 | iasdangelim4@gmail.com</p>
+            <a href="https://www.instagram.com/iasdangelim/" target="_blank" style="color: #f5c518;">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+    function atualizarInformativo() {
+        const agora = new Date();
+        const diaSemana = agora.getDay(); 
+        
+        function getSemanaDoMes(date) {
+            const primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+            return Math.ceil((date.getDate() + primeiroDia) / 7);
+        }
+
+        const semana = getSemanaDoMes(agora);
+        const tituloAmarelo = document.getElementById('titulo-amarelo');
+        const campoDepto = document.getElementById('departamento-texto');
+        const campoResponsavel = document.getElementById('responsavel-nome');
+
+        const escala = {
+            0: [
+                { depto: "Escola Sabatina", resp: "Rogério e Monyk" },
+                { depto: "Diaconato", resp: "João e Elineide" },
+                { depto: "Tesouraria", resp: "Paulo e Paulo Pires" },
+                { depto: "Desbravadores", resp: "Sabrina e Geovana" },
+                { depto: "ASA", resp: "Lucia e Julia Pires" }
+            ],
+            3: [
+                { depto: "Min. da Mulher", resp: "Gelma e Gerdane" },
+                { depto: "Ancião", resp: "Livio/Paulo/Jose/Almir" },
+                { depto: "PGS", resp: "Almir e Claudia" },
+                { depto: "Secretaria", resp: "Fernanda e Giordana" },
+                { depto: "Min. da Criança", resp: "Gelma e Eva" }
+            ],
+            6: [
+                { depto: "Min. Pessoal", resp: "Paulo Pires e Sabrina" },
+                { depto: "Min. Jovem", resp: "Eduarda e Geovana" },
+                { depto: "Mordomia", resp: "Eva e Jose" },
+                { depto: "Família", resp: "Livio e Gelma" },
+                { depto: "Saúde", resp: "Claudia e Luane" }
+            ]
+        };
+
+        let alvo;
+        let diaTexto = "";
+
+        if (diaSemana === 0) { alvo = escala[0][semana-1]; diaTexto = "Hoje (Domingo)"; }
+        else if (diaSemana === 3) { alvo = escala[3][semana-1]; diaTexto = "Hoje (Quarta-feira)"; }
+        else if (diaSemana === 6) { alvo = escala[6][semana-1]; diaTexto = "Hoje (Sábado)"; }
+        else {
+            if (diaSemana < 3) { alvo = escala[3][semana-1]; diaTexto = "Quarta-feira"; }
+            else if (diaSemana < 6) { alvo = escala[6][semana-1]; diaTexto = "Sábado"; }
+            else { alvo = escala[0][semana]; diaTexto = "Domingo"; }
+        }
+
+        tituloAmarelo.innerText = "Próximo Culto";
+        campoDepto.innerText = diaTexto + " - " + (alvo ? alvo.depto : "Escala Geral");
+        campoResponsavel.innerText = alvo ? alvo.resp : "";
+    }
+    window.onload = atualizarInformativo;
+    </script>
+</body>
+</html>
