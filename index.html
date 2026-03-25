@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site oficial da Igreja Adventista Angelim IV - Informações sobre cultos, escalas, lições e eventos.">
+    <meta name="keywords" content="igreja adventista, angelim, cultos, escalas, lições, calendário">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Igreja Adventista Angelim IV</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="Capa1.png.jpg" alt="Logo da Igreja Adventista" class="logo">
+            <img src="Capa1.png.jpg" alt="Logo da Igreja Adventista Angelim IV" class="logo">
             <nav>
-                <ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul id="nav-menu">
                     <li><a href="#banner">Início</a></li>
                     <li><a href="#escalas">Escalas</a></li>
                     <li><a href="#licoes">Lições</a></li>
@@ -43,6 +51,43 @@
             </div>
         </section>
 
+<section id="horarios" class="section-content">
+    <div class="container">
+        <h2 class="titulo-sessao">Horários de Culto</h2>
+        <div class="horarios-grid-vertical">
+            <div class="horario-card-v">
+                <div class="icon-topo">📅</div>
+                <div class="card-body">
+                    <span class="dia-semana">Sábado</span>
+                    <p class="desc-culto">Escola Sabatina e Culto Divino</p>
+                    <div class="hora-badge">08h30</div>
+                </div>
+            </div>
+
+            <div class="horario-card-v">
+                <div class="icon-topo">⛪</div>
+                <div class="card-body">
+                    <span class="dia-semana">Domingo</span>
+                    <p class="desc-culto">Culto Evangelístico</p>
+                    <div class="hora-badge">17h30</div>
+                </div>
+            </div>
+
+            <div class="horario-card-v">
+                <div class="icon-topo">🙏</div>
+                <div class="card-body">
+                    <span class="dia-semana">Quarta</span>
+                    <p class="desc-culto">Culto de Oração</p>
+                    <div class="hora-badge">19h00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
         <section id="escalas" class="section-content">
             <div class="container">
                 <h2>Escalas</h2>
@@ -50,31 +95,71 @@
                     <h3>Escala de Pregadores 2026</h3>
                     <div class="moldura-escala">
                         <img src="Escalas.png" alt="Escala Geral" class="img-full">
-                   </div>
-
-                    <h3>Escala Escola Sabatina - Março</h3>
-                    <div class="moldura-escala">
-                        <img src="escala2.jpeg" alt="Escala Escola Sabatina Março" class="img-full">
                     </div>
                 </div>
             </div>
         </section>
+
         <section id="licoes" class="section-content">
-            <div class="container">
-                <h2>Lições da Escola Sabatina</h2>
-                <div class="licoes-grid">
-                    <div class="licao-item">
-                        <h3>LIÇÃO DOS JOVENS</h3>
-                        <a href="LIÇÃO DOS JOVENS - 3º TRIMESTRE 2025 - ÊXODO.pdf" target="_blank" class="btn-download">Baixar PDF</a>
-                    </div>
+    <div class="container">
+        <h2 class="titulo-sessao">Lições da Escola Sabatina</h2>
+        <div class="licoes-grid-premium">
+            
+            <div class="licao-card-v">
+                <div class="capa-wrapper">
+                    <img src="liçao-adultos.png" alt="Lição Adultos" class="capa-img">
+                </div>
+                <div class="licao-body">
+                    <h3>Adultos</h3>
+                    <p>Guia de Estudo da Bíblia</p>
+                    <a href="URL_DA_LICAO_ADULTO" target="_blank" class="btn-pdf">Download PDF</a>
                 </div>
             </div>
-        </section>
 
-        <section id="calendario" class="section-content">
+            <div class="licao-card-v">
+                <div class="capa-wrapper">
+                    <img src="liçao-jovens.png" alt="Lição Jovens" class="capa-img">
+                </div>
+                <div class="licao-body">
+                    <h3>Jovens</h3>
+                    <p>Lição dos Jovens (Provai e Vede)</p>
+                    <a href="URL_DA_LICAO_JOVEM" target="_blank" class="btn-pdf">Download PDF</a>
+                </div>
+            </div>
+
+            <div class="licao-card-v">
+                <div class="capa-wrapper">
+                    <img src="liçao-adole.png" alt="Lição Adolescentes" class="capa-img">
+                </div>
+                <div class="licao-body">
+                    <h3>Adolescentes</h3>
+                    <p>Elo Dinâmico</p>
+                    <a href="URL_DA_LICAO_ADOLESCENTE" target="_blank" class="btn-pdf">Download PDF</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <section id="contato" class="section-content">
             <div class="container">
-                <h2>Calendário de Eventos</h2>
-                <iframe src="https://calendar.google.com/calendar/u/0/embed?src=iasdangelim4@gmail.com&ctz=America/Sao_Paulo" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+                <h2>Contato</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </form>
             </div>
         </section>
     </main>
@@ -87,64 +172,10 @@
         </div>
     </footer>
 
-    <script>
-    function atualizarInformativo() {
-        const agora = new Date();
-        const diaSemana = agora.getDay(); 
-        
-        function getSemanaDoMes(date) {
-            const primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-            return Math.ceil((date.getDate() + primeiroDia) / 7);
-        }
+    <a href="https://wa.me/5586999707484" class="btn-float" target="_blank" aria-label="Contato via WhatsApp">
+        <span>💬</span>
+    </a>
 
-        const semana = getSemanaDoMes(agora);
-        const tituloAmarelo = document.getElementById('titulo-amarelo');
-        const campoDepto = document.getElementById('departamento-texto');
-        const campoResponsavel = document.getElementById('responsavel-nome');
-
-        const escala = {
-            0: [
-                { depto: "Escola Sabatina", resp: "Rogério e Monyk" },
-                { depto: "Diaconato", resp: "João e Elineide" },
-                { depto: "Tesouraria", resp: "Paulo e Paulo Pires" },
-                { depto: "Desbravadores", resp: "Sabrina e Geovana" },
-                { depto: "ASA", resp: "Lucia e Julia Pires" }
-            ],
-            3: [
-                { depto: "Min. da Mulher", resp: "Gelma e Gerdane" },
-                { depto: "Ancião", resp: "Livio/Paulo/Jose/Almir" },
-                { depto: "PGS", resp: "Almir e Claudia" },
-                { depto: "Secretaria", resp: "Fernanda e Giordana" },
-                { depto: "Min. da Criança", resp: "Gelma e Eva" }
-            ],
-            6: [
-                { depto: "Min. Pessoal", resp: "Paulo Pires e Sabrina" },
-                { depto: "Min. Jovem", resp: "Eduarda e Geovana" },
-                { depto: "Mordomia", resp: "Eva e Jose" },
-                { depto: "Família", resp: "Livio e Gelma" },
-                { depto: "Saúde", resp: "Claudia e Luane" }
-            ]
-        };
-
-        let alvo;
-        let diaTexto = "";
-
-        if (diaSemana === 0) { alvo = escala[0][semana-1]; diaTexto = "Hoje (Domingo)"; }
-        else if (diaSemana === 3) { alvo = escala[3][semana-1]; diaTexto = "Hoje (Quarta-feira)"; }
-        else if (diaSemana === 6) { alvo = escala[6][semana-1]; diaTexto = "Hoje (Sábado)"; }
-        else {
-            if (diaSemana < 3) { alvo = escala[3][semana-1]; diaTexto = "Quarta-feira"; }
-            else if (diaSemana < 6) { alvo = escala[6][semana-1]; diaTexto = "Sábado"; }
-            else { alvo = escala[0][semana]; diaTexto = "Domingo"; }
-        }
-
-        tituloAmarelo.innerText = "Próximo Culto";
-        campoDepto.innerText = diaTexto + " - " + (alvo ? alvo.depto : "Escala Geral");
-        campoResponsavel.innerText = alvo ? alvo.resp : "";
-    }
-    window.onload = atualizarInformativo;
-    </script>
+    <script src="java.js"></script>
 </body>
-
 </html>
-

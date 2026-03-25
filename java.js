@@ -1,42 +1,35 @@
-<script>
+// Função para atualizar informativo de culto
 function atualizarInformativo() {
     const agora = new Date();
-    const diaSemana = agora.getDay(); 
-    const diaDoMes = agora.getDate();
+    const diaSemana = agora.getDay();
 
-    // Função para descobrir em qual semana (1ª a 5ª) estamos
     function getSemanaDoMes(date) {
-        const primeiroDiaDoMes = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-        // A lógica da sua tabela considera a semana cheia ou a posição do dia
-        return Math.ceil((date.getDate() + primeiroDiaDoMes) / 7);
+        const primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        return Math.ceil((date.getDate() + primeiroDia) / 7);
     }
 
-    const numSemana = getSemanaDoMes(agora);
-    // Garante que o índice não ultrapasse 4 (referente à 5ª semana)
-    const i = Math.min(numSemana - 1, 4); 
-
+    const semana = getSemanaDoMes(agora);
     const tituloAmarelo = document.getElementById('titulo-amarelo');
     const campoDepto = document.getElementById('departamento-texto');
     const campoResponsavel = document.getElementById('responsavel-nome');
 
-    // Escala EXATA da sua imagem (image_551b20.jpg)
     const escala = {
-        0: [ // DOMINGO
+        0: [
             { depto: "Escola Sabatina", resp: "Rogério e Monyk" },
             { depto: "Diaconato", resp: "João e Elineide" },
             { depto: "Tesouraria", resp: "Paulo e Paulo Pires" },
             { depto: "Desbravadores", resp: "Sabrina e Geovana" },
             { depto: "ASA", resp: "Lucia e Julia Pires" }
         ],
-        3: [ // QUARTA
+        3: [
             { depto: "Min. da Mulher", resp: "Gelma e Gerdane" },
             { depto: "Ancião", resp: "Livio/Paulo/Jose/Almir" },
             { depto: "PGS", resp: "Almir e Claudia" },
             { depto: "Secretaria", resp: "Fernanda e Giordana" },
             { depto: "Min. da Criança", resp: "Gelma e Eva" }
         ],
-        6: [ // SÁBADO
-            { depto: "Min. Pessoal", resp: "Paulo Pires e Elineide" }, // Ajustado conforme foto
+        6: [
+            { depto: "Min. Pessoal", resp: "Paulo Pires e Sabrina" },
             { depto: "Min. Jovem", resp: "Eduarda e Geovana" },
             { depto: "Mordomia", resp: "Eva e Jose" },
             { depto: "Família", resp: "Livio e Gelma" },
@@ -45,32 +38,64 @@ function atualizarInformativo() {
     };
 
     let alvo;
-    let prefixo = "";
+    let diaTexto = "";
 
-    // Lógica de exibição baseada no dia atual
-    if (diaSemana === 0) { 
-        alvo = escala[0][i]; 
-        prefixo = "Hoje (Domingo)"; 
-    } else if (diaSemana === 3) { 
-        alvo = escala[3][i]; 
-        prefixo = "Hoje (Quarta-feira)"; 
-    } else if (diaSemana === 6) { 
-        alvo = escala[6][i]; 
-        prefixo = "Hoje (Sábado)"; 
-    } else {
-        // Se não for dia de culto, mostra o próximo
-        prefixo = "Próximo Culto";
-        if (diaSemana < 3) { alvo = escala[3][i]; }
-        else if (diaSemana < 6) { alvo = escala[6][i]; }
-        else { alvo = escala[0][0]; } // Pula para o domingo da prox semana
+    if (diaSemana === 0) { alvo = escala[0][semana-1]; diaTexto = "Hoje (Domingo)"; }
+    else if (diaSemana === 3) { alvo = escala[3][semana-1]; diaTexto = "Hoje (Quarta-feira)"; }
+    else if (diaSemana === 6) { alvo = escala[6][semana-1]; diaTexto = "Hoje (Sábado)"; }
+    else {
+        if (diaSemana < 3) { alvo = escala[3][semana-1]; diaTexto = "Quarta-feira"; }
+        else if (diaSemana < 6) { alvo = escala[6][semana-1]; diaTexto = "Sábado"; }
+        else { alvo = escala[0][semana]; diaTexto = "Domingo"; }
     }
 
-    if (alvo) {
-        tituloAmarelo.innerText = "PRÓXIMO CULTO";
-        campoDepto.innerText = prefixo + " - " + alvo.depto;
-        campoResponsavel.innerText = alvo.resp;
-    }
+    tituloAmarelo.innerText = "Próximo Culto";
+    campoDepto.innerText = diaTexto + " - " + (alvo ? alvo.depto : "Escala Geral");
+    campoResponsavel.innerText = alvo ? alvo.resp : "";
 }
 
-window.onload = atualizarInformativo;
-</script>
+// Função para toggle do menu hambúrguer
+function toggleMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+}
+
+// Função para validação e envio do formulário
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert('Por favor, insira um email válido.');
+        return;
+    }
+
+    // Simulação de envio (substitua por backend real)
+    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+    form.reset();
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarInformativo();
+
+    const hamburger = document.getElementById('hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleFormSubmit);
+    }
+});
