@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desbravadores - Leões do Rei</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0c0c1d;
+            color: white;
+        }
+
+        .main-container {
+            background: linear-gradient(rgba(26, 35, 126, 0.7), rgba(10, 10, 20, 0.9)), 
+                        url('sua-imagem-de-fundo.jpg'); /* COLOQUE SUA FOTO AQUI */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-foto {
+            width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+        }
+
+        .titulo-wrapper {
+            background-color: #ffffff;
+            color: #bd1616;
+            padding: 15px 35px;
+            transform: rotate(-1.5deg);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+            clip-path: polygon(2% 10%, 98% 2%, 100% 90%, 95% 98%, 5% 95%, 0% 85%);
+            margin-bottom: 25px;
+        }
+
+        .titulo-wrapper h1 {
+            margin: 0;
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* CONTAINER PARA OS BOTÕES LADO A LADO */
+        .botoes-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 30px;
+            flex-wrap: wrap; /* Ajuste para celular */
+        }
+
+        .btn-link {
+            text-decoration: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex: 1; /* Faz os dois terem o mesmo tamanho */
+            min-width: 160px;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            box-shadow: 0 4px 15px rgba(204, 35, 102, 0.3);
+        }
+
+        .btn-link:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .slogan {
+            font-weight: 400;
+            font-size: 0.95rem;
+            margin-bottom: 45px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .viver-circle {
+            border: 2px solid #ff6600;
+            border-radius: 50px;
+            padding: 2px 12px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+
+        .header-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .material-symbols-outlined {
+            font-size: 32px;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .faixa-laranja {
+            background-color: #ff6600;
+            color: white;
+            padding: 6px 25px 6px 15px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%, 5% 50%);
+        }
+
+        .texto-corpo {
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding-left: 50px;
+        }
+
+        .atividades-lista {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .link-mapa {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .titulo-wrapper h1 { font-size: 1.4rem; }
+            .faixa-laranja { font-size: 1.2rem; }
+            .logo-foto { width: 100px; }
+            .botoes-container { flex-direction: column; align-items: center; }
+            .btn-link { width: 100%; max-width: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <img src="logo-clube.png" alt="Logo Leões do Rei" class="logo-foto">
+
+        <div class="titulo-wrapper">
+            <h1>Clube de Desbravadores</h1>
+        </div>
+
+        <div class="botoes-container">
+            <a href="https://wa.me/5586999707484" target="_blank" class="btn-link btn-whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="18">
+                WhatsApp
+            </a>
+
+            <a href="https://www.instagram.com/NOME_DO_SEU_PERFIL" target="_blank" class="btn-link btn-insta">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="18">
+                Instagram
+            </a>
+        </div>
+
+        <p class="slogan">
+            Hora de colocar a mochila nas costas e sentir e 
+            <span class="viver-circle">VIVER</span> uma aventura
+        </p>
+
+        <div class="section">
+            <div class="header-box">
+                <span class="material-symbols-outlined">help</span>
+                <div class="faixa-laranja">O que é?</div>
+            </div>
+            <div class="texto-corpo">
+                O Clube de Desbravadores é uma aventura para crianças e adolescentes de 10 a 15 anos. É um lugar para aprender habilidades úteis, fazer novos amigos e se aproximar de Deus. Nosso objetivo é ajudar os jovens a crescerem fisicamente, mentalmente, socialmente e espiritualmente.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="header-box">
+                <span class="material-symbols-outlined">schedule</span>
+                <div class="faixa-laranja">Atividades</div>
+            </div>
+            <div class="texto-corpo atividades-lista">
+                ACAMPAMENTOS - TRILHAS - PRIMEIROS SOCORROS - ESPECIALIDADES - AMIZADES - PASSEIO - ORDEM UNIDA - E MUITO MAIS
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="header-box">
+                <span class="material-symbols-outlined">location_on</span>
+                <div class="faixa-laranja">Localização</div>
+            </div>
+            <div class="texto-corpo">
+                <strong>IASD ANGELIM IV</strong><br>
+                Rua Capitão Gabriel Leite N° 1807<br>
+                <a href="https://maps.google.com/?q=IASD+ANGELIM+IV+Rua+Capitao+Gabriel+Leite+1807" target="_blank" class="link-mapa">
+                    CLIQUE AQUI PARA VER NO MAPA
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="header-box">
+                <span class="material-symbols-outlined">call</span>
+                <div class="faixa-laranja">Contato</div>
+            </div>
+            <div class="texto-corpo">
+                <strong>(86) 99970-7484</strong><br>
+                Procure a diretoria do Clube Leões do Rei.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
