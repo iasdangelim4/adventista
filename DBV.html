@@ -16,7 +16,44 @@
             background-color: #0c0c1d;
             color: white;
         }
+.btn-voltar {
+    position: absolute; /* Ele fica no topo da página */
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15); /* Fundo semi-transparente */
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(5px); /* Efeito de vidro embaçado */
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 100; /* Garante que fique por cima de tudo */
+}
 
+.btn-voltar:hover {
+    background-color: #ff6600; /* Fica laranja ao passar o mouse */
+    border-color: #ff6600;
+    transform: translateX(5px);
+}
+
+.btn-voltar .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* Ajuste para não bater na logo no celular */
+@media (max-width: 480px) {
+    .btn-voltar {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+    }
+}
         .main-container {
             background: linear-gradient(rgba(26, 35, 126, 0.7), rgba(10, 10, 20, 0.9)), 
                         url('sua-imagem-de-fundo.jpg'); /* COLOQUE SUA FOTO AQUI */
@@ -184,6 +221,11 @@
     </style>
 </head>
 <body>
+    <a href="index.html" class="btn-voltar">
+    <span class="material-symbols-outlined">home</span>
+    INÍCIO
+</a>
+    
 
     <div class="main-container">
         
