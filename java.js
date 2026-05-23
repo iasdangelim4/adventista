@@ -89,6 +89,10 @@ function handleFormSubmit(event) {
 document.addEventListener('DOMContentLoaded', function() {
     atualizarInformativo();
 
+    // Atualiza o ano do copyright automaticamente
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
