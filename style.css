@@ -13,6 +13,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* Evita que o header fixo corte os títulos das seções ao navegar */
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -299,23 +301,47 @@ nav ul li a:hover {
     margin-top: auto; /* Joga o horário para a base do card */
 }
 
-/* Ajuste Mobile */
+/* Ajuste Mobile - Horários */
 @media (max-width: 768px) {
+    /* Empilha os cards verticalmente em vez de scroll horizontal */
     .horarios-grid-vertical {
-        justify-content: flex-start; /* Alinha à esquerda para o scroll começar certo */
-        padding-left: 20px; /* Dá um respiro na margem esquerda */
-        padding-right: 20px; /* Garante que o último card não cole no final */
+        flex-direction: column;
+        align-items: center;
+        overflow-x: visible;
+        padding: 10px 20px;
+        scroll-snap-type: none;
     }
-    
+
     .titulo-sessao {
         font-size: 1.5rem;
-        text-align: left;
-        padding-left: 20px;
+        text-align: center;
+        padding-left: 0;
     }
 
     .horario-card-v {
-        flex: 0 0 180px; /* Largura reduzida para caber melhor no celular */
-        min-width: 180px;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+        min-width: unset;
+        min-height: unset;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .icon-topo {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .card-body {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hora-badge {
+        margin-top: 8px;
     }
 }
 
@@ -533,6 +559,23 @@ footer {
     color: white;
     padding: 80px 0 40px;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+footer .container {
+    padding: 0 20px;
+}
+
+footer p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+footer a {
+    display: inline-block;
+    margin-top: 12px;
 }
 
 .social-links a {
@@ -579,31 +622,53 @@ footer {
 /* 11. RESPONSIVIDADE PARA CELULAR */
 @media (max-width: 768px) {
     #banner h1 { font-size: 2.2rem; }
-    header .container { flex-direction: column; gap: 15px; }
-    nav ul { 
+
+    /* Header: logo + hamburger lado a lado (sem flex-direction: column) */
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    /* Menu dropdown sólido (sem transparência para não vazar o conteúdo de fundo) */
+    nav ul {
         position: fixed;
-        top: 100px;
+        top: 80px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
-        background-color: rgba(14, 3, 39, 0.95);
+        height: calc(100vh - 80px);
+        background-color: #0e0327; /* sólido, sem rgba que deixava vazar o banner */
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 30px;
         transition: left 0.3s ease;
+        z-index: 1002;
     }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+
     nav ul.active {
         left: 0;
     }
+
     .hamburger {
         display: flex;
-        position: absolute;
-        right: 16px;
-        top: 18px;
         z-index: 1005;
+        /* Remove position: absolute para ficar no fluxo normal do flex */
+        position: relative;
+        right: auto;
+        top: auto;
     }
-    #aviso-programado { padding: 30px; margin-top: -50px; }
+
+    #aviso-programado { padding: 30px 15px; }
     .section-content { padding: 30px 0; }
     .contact-form {
         padding: 20px;
@@ -617,17 +682,17 @@ footer {
     }
 }
 
-/* responsividade para celular */
+/* responsividade para celular pequeno (480px) */
 @media (max-width: 480px) {
     #banner h1 { font-size: 1.8rem; }
+    #banner { padding: 100px 20px 80px; }
     .titulo-sessao { font-size: 1.3rem; }
-    .horarios-grid-vertical {
-        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
-        gap: 10px;
-    }
+
     .horario-card-v {
         max-width: 100%;
+        width: 100%;
     }
+
     .contact-form {
         padding: 15px;
     }
@@ -636,7 +701,20 @@ footer {
         font-size: 0.9rem;
     }
     footer {
-        padding: 40px 0 20px;
+        padding: 40px 15px 20px;
         font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        word-break: break-word;
+    }
+
+    .section-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .licao-card-v {
+        margin: 0 10px;
     }
 }

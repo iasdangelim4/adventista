@@ -90,8 +90,20 @@ document.addEventListener('DOMContentLoaded', function() {
     atualizarInformativo();
 
     const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
     if (hamburger) {
         hamburger.addEventListener('click', toggleMenu);
+    }
+
+    // Fecha o menu ao clicar em qualquer link da navegação (melhora UX no mobile)
+    if (navMenu) {
+        navMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
     }
 
     const contactForm = document.getElementById('contact-form');
