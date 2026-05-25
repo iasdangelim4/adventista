@@ -387,6 +387,22 @@ nav ul li a:hover {
 }
 
 /* 6. MOLDURA DA ESCALA (O FOCO DO SITE) */
+.escala-item {
+    margin-bottom: 50px;
+}
+
+.escala-item:last-child {
+    margin-bottom: 0;
+}
+
+.escala-item h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0e0327;
+    margin-bottom: 20px;
+}
+
 .moldura-escala {
     background: #ffffff;
     padding: 12px;
