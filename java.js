@@ -3,12 +3,41 @@ function atualizarInformativo() {
     const agora = new Date();
     const diaSemana = agora.getDay();
 
-    function getSemanaDoMes(date) {
-        const primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-        return Math.ceil((date.getDate() + primeiroDia) / 7);
+    let dataAlvo = new Date(agora);
+    let diaTexto = "";
+    let diaCultoSemana = diaSemana;
+
+    if (diaSemana === 0) {
+        diaTexto = "Hoje (Domingo)";
+    } else if (diaSemana === 3) {
+        diaTexto = "Hoje (Quarta-feira)";
+    } else if (diaSemana === 6) {
+        diaTexto = "Hoje (Sábado)";
+    } else {
+        let diff = 0;
+        if (diaSemana === 1) { // Segunda
+            diff = 2;
+            diaTexto = "Quarta-feira";
+            diaCultoSemana = 3;
+        } else if (diaSemana === 2) { // Terça
+            diff = 1;
+            diaTexto = "Quarta-feira";
+            diaCultoSemana = 3;
+        } else if (diaSemana === 4) { // Quinta
+            diff = 2;
+            diaTexto = "Sábado";
+            diaCultoSemana = 6;
+        } else if (diaSemana === 5) { // Sexta
+            diff = 1;
+            diaTexto = "Sábado";
+            diaCultoSemana = 6;
+        }
+        dataAlvo.setDate(agora.getDate() + diff);
     }
 
-    const semana = getSemanaDoMes(agora);
+    // Calcula com precisão qual ocorrência do dia da semana é no mês (1ª a 5ª)
+    const semanaAlvo = Math.ceil(dataAlvo.getDate() / 7);
+
     const tituloAmarelo = document.getElementById('titulo-amarelo');
     const campoDepto = document.getElementById('departamento-texto');
     const campoResponsavel = document.getElementById('responsavel-nome');
@@ -37,17 +66,7 @@ function atualizarInformativo() {
         ]
     };
 
-    let alvo;
-    let diaTexto = "";
-
-    if (diaSemana === 0) { alvo = escala[0][semana-1]; diaTexto = "Hoje (Domingo)"; }
-    else if (diaSemana === 3) { alvo = escala[3][semana-1]; diaTexto = "Hoje (Quarta-feira)"; }
-    else if (diaSemana === 6) { alvo = escala[6][semana-1]; diaTexto = "Hoje (Sábado)"; }
-    else {
-        if (diaSemana < 3) { alvo = escala[3][semana-1]; diaTexto = "Quarta-feira"; }
-        else if (diaSemana < 6) { alvo = escala[6][semana-1]; diaTexto = "Sábado"; }
-        else { alvo = escala[0][semana]; diaTexto = "Domingo"; }
-    }
+    const alvo = escala[diaCultoSemana][semanaAlvo - 1];
 
     tituloAmarelo.innerText = "Próximo Culto";
     campoDepto.innerText = diaTexto + " - " + (alvo ? alvo.depto : "Escala Geral");
